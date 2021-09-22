@@ -48,6 +48,10 @@ export const Container = styled.div`
   background-image: ${({ image }) => (image ? `url(${image})` : "none")};
   background-size: cover;
   background-position: center;
+  padding: ${({ pa }) => (pa ? pa : 0)};
+  margin: ${({ ma }) => (ma ? ma : 0)};
+  color: white;
+  font-family: roboto;
 `;
 
 export const TextTitle = styled.p`

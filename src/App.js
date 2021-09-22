@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
-import { create } from "ipfs-http-client";
+import { ShipCreator } from "./components/ShipCreator";
 
 export const StyledButton = styled.button`
   padding: 8px;
@@ -44,8 +44,10 @@ function App() {
       ) : (
         <s.Container flex={1} ai={"center"} style={{ padding: 24 }}>
           <s.TextTitle style={{ textAlign: "center" }}>
-            Name: {data.name}.
+            Name: {data.name}
           </s.TextTitle>
+          <s.SpacerLarge />
+          <ShipCreator />
         </s.Container>
       )}
     </s.Screen>
