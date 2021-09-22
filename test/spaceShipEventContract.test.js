@@ -25,11 +25,6 @@ contract("SpaceShipEventContract", (accounts) => {
       assert.equal(name, "Space Ship Event Contract");
     });
 
-    it("has correct cap", async () => {
-      const cap = await spaceShipEventcontract.getTokenCap();
-      assert.equal(cap, 10000);
-    });
-
     it("has correct cid", async () => {
       const CID = await spaceShipEventcontract.getCID();
       assert.equal(CID, "URL_DU_CID");
@@ -38,14 +33,16 @@ contract("SpaceShipEventContract", (accounts) => {
 
   describe("SpaceShipEventContract minting", async () => {
     it("minted successfully", async () => {
-      /*const uri = "https://example.com";
-      await spaceShipEventcontract.mint(accounts[0], uri);
-      const tokenUri = await spaceShipEventcontract.tokenURI(0);
+      const shipStats = ["2000", "500", "1250"];
+      const shipParts = ["1", "10", "2", "5", "11", "8"];
+      const ship = ["0", shipStats, shipParts, false];
+      await spaceShipEventcontract.mintSpaceShip(accounts[0], ship);
+      const tokenShip = await spaceShipEventcontract.getShip(0);
       const balanceOfOwner = await spaceShipEventcontract.balanceOf(
         accounts[0]
       );
-      assert.equal(uri, tokenUri);
-      assert.equal(balanceOfOwner, 1);*/
+      assert.deepEqual(tokenShip, ship);
+      assert.equal(balanceOfOwner, 1);
     });
   });
 });
