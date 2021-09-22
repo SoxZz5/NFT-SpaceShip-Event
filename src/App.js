@@ -19,6 +19,7 @@ function App() {
   useEffect(() => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
       dispatch(fetchData(blockchain.account));
+      console.log(blockchain);
     }
   }, [blockchain.smartContract, dispatch]);
 
@@ -43,8 +44,12 @@ function App() {
         </s.Container>
       ) : (
         <s.Container flex={1} ai={"center"} style={{ padding: 24 }}>
-          <s.TextTitle style={{ textAlign: "center" }}>
-            Name: {data.name}
+          <s.TextTitle style={{ textAlign: "left" }}>
+            <p>BlockChain Account: {blockchain.account}</p>
+            <br></br>
+            <p>BlockChain Name: {data.name}</p>
+            <br></br>
+            <p>Contract Addr: {blockchain.smartContract._address}</p>
           </s.TextTitle>
           <s.SpacerLarge />
           <ShipCreator />

@@ -18,7 +18,7 @@ export function ShipStats(props) {
           key={part}
           pa={"1rem 0"}
         >
-          {state[part].label} -> {state[part].val}/{state[part].maxVal}
+          {state[part].label} {"=>"} {state[part].val}/{state[part].maxVal}
         </s.Container>
       ))}
     </s.Container>
