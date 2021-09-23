@@ -61,6 +61,13 @@ export const TextTitle = styled.p`
   word-wrap: wrap;
 `;
 
+export const TextTitleBlock = styled.span`
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 500;
+  word-wrap: wrap;
+`;
+
 export const TextSubTitle = styled.p`
   color: var(--white);
   font-size: 16px;

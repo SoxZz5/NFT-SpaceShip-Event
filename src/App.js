@@ -44,13 +44,13 @@ function App() {
         </s.Container>
       ) : (
         <s.Container flex={1} ai={"center"} style={{ padding: 24 }}>
-          <s.TextTitle style={{ textAlign: "left" }}>
+          <s.TextTitleBlock style={{ textAlign: "left" }}>
             <p>BlockChain Account: {blockchain.account}</p>
             <br></br>
             <p>BlockChain Name: {data.name}</p>
             <br></br>
             <p>Contract Addr: {blockchain.smartContract._address}</p>
-          </s.TextTitle>
+          </s.TextTitleBlock>
           <s.SpacerLarge />
           <ShipCreator />
         </s.Container>
