@@ -3,15 +3,28 @@ import { SelectOptions } from "./SelectOption";
 import { ShipViewer } from "./ShipViewer";
 import { ShipStats } from "./ShipStats";
 import { useState } from "react";
+import layersConf from "../assets/layers/layers.json";
 
 export function ShipCreator(props) {
   const [shipParts] = useState({
-    body: { val: 0, label: "Body", maxVal: 10 },
-    bodySkin: { val: 0, label: "Body Skin", maxVal: 10 },
-    reactor: { val: 0, label: "Reactor", maxVal: 10 },
-    reactorSkin: { val: 0, label: "Reactor Skin", maxVal: 10 },
-    weapon: { val: 0, label: "Weapon", maxVal: 10 },
-    weaponSkin: { val: 0, label: "Weapon Skin", maxVal: 10 },
+    body: { val: 0, label: "Body", maxVal: layersConf.maxBody - 1 },
+    bodySkin: {
+      val: 0,
+      label: "Body Skin",
+      maxVal: layersConf.maxBodySkin - 1,
+    },
+    reactor: { val: 0, label: "Reactor", maxVal: layersConf.maxReactor - 1 },
+    reactorSkin: {
+      val: 0,
+      label: "Reactor Skin",
+      maxVal: layersConf.maxReactorSkin - 1,
+    },
+    weapon: { val: 0, label: "Weapon", maxVal: layersConf.maxWeapon - 1 },
+    weaponSkin: {
+      val: 0,
+      label: "Weapon Skin",
+      maxVal: layersConf.maxWeaponSkin - 1,
+    },
   });
   const [shipStats, setShipStats] = useState({
     atk: { val: 0, label: "Attack", maxVal: 5000 },

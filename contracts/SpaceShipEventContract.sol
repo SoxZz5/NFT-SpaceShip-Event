@@ -54,7 +54,7 @@ contract SpaceShipEventContract is ERC721URIStorage, Ownable {
       return string(abi.encodePacked(parts.body, "-", parts.bodySkin, "_",parts.reactor, "-", parts.reactorSkin, "_",parts.weapon, "-", parts.weaponSkin, "_"));
     }
 
-    function _createTokenURI(SpaceShips.ShipParts memory parts) internal view returns(string memory) {
+    function _createTokenURI(SpaceShips.ShipParts memory parts) internal pure returns(string memory) {
         return string(abi.encodePacked(_CID, '/?filename="', _partsToStr(parts), '"'));
     }
 
