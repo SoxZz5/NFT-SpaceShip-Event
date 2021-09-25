@@ -42,6 +42,10 @@ contract SpaceShipEventContract is ERC721URIStorage, Ownable {
         _CID = CID;
     }
 
+    function totalShips() public view returns(uint256) {
+        return _tokenIds.current();
+    }
+
     function getCID() public view virtual returns (string memory) {
         return _CID;
     }
@@ -50,12 +54,12 @@ contract SpaceShipEventContract is ERC721URIStorage, Ownable {
         return _spaceShipDatas[tokenId];
     }
 
-    function _partsToStr(SpaceShips.ShipParts memory parts) internal pure returns (string memory) {
+    function _partsToStr(SpaceShips.ShipParts memory parts) internal view returns (string memory) {
       return string(abi.encodePacked(parts.body, "-", parts.bodySkin, "_",parts.reactor, "-", parts.reactorSkin, "_",parts.weapon, "-", parts.weaponSkin, "_"));
     }
 
-    function _createTokenURI(SpaceShips.ShipParts memory parts) internal pure returns(string memory) {
-        return string(abi.encodePacked(_CID, '/?filename="', _partsToStr(parts), '"'));
+    function _createTokenURI(SpaceShips.ShipParts memory parts) internal view returns(string memory) {
+        return string(abi.encodePacked(_CID, '/', _partsToStr(parts)));
     }
 
     function _createSpaceShipForToken(uint256 tokenId, SpaceShips.Ship memory spaceShip) internal {

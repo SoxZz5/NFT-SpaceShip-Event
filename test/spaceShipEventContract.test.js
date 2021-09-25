@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { assert } = require("chai");
 
 const SpaceShipEventContract = artifacts.require(
@@ -27,7 +28,7 @@ contract("SpaceShipEventContract", (accounts) => {
 
     it("has correct cid", async () => {
       const CID = await spaceShipEventcontract.getCID();
-      assert.equal(CID, "URL_DU_CID");
+      assert.equal(CID, process.env.SPE_CID);
     });
   });
 

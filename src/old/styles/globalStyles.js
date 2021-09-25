@@ -85,3 +85,5 @@ export const StyledClickable = styled.div`
     opacity: 0.6;
   }
 `;
+
+export const Button = styled.button``;

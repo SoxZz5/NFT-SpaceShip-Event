@@ -26,7 +26,7 @@ export function ShipCreator(props) {
       maxVal: layersConf.maxWeaponSkin - 1,
     },
   });
-  const [shipStats, setShipStats] = useState({
+  const [shipStat, setShipStat] = useState({
     atk: { val: 0, label: "Attack", maxVal: 5000 },
     def: { val: 0, label: "Defense", maxVal: 5000 },
     speed: { val: 0, label: "Speed", maxVal: 5000 },
@@ -37,23 +37,23 @@ export function ShipCreator(props) {
     shipParts[key].val = val;
     handleStatsChange(
       "atk",
-      Math.floor(0 + Math.random() * shipStats["atk"].maxVal)
+      Math.floor(0 + Math.random() * shipStat["atk"].maxVal)
     );
     handleStatsChange(
       "def",
-      Math.floor(0 + Math.random() * shipStats["def"].maxVal)
+      Math.floor(0 + Math.random() * shipStat["def"].maxVal)
     );
     handleStatsChange(
       "speed",
-      Math.floor(0 + Math.random() * shipStats["speed"].maxVal)
+      Math.floor(0 + Math.random() * shipStat["speed"].maxVal)
     );
     setUpdateStat(Math.random());
   };
 
   const handleStatsChange = (key, val) => {
-    const newShipStats = shipStats;
+    const newShipStats = shipStat;
     newShipStats[key].val = val;
-    setShipStats(newShipStats);
+    setShipStat(newShipStats);
   };
 
   return (
@@ -110,7 +110,7 @@ export function ShipCreator(props) {
           fd={"column"}
           key={updateStat}
         >
-          {Object.keys(shipStats).map((stat) => (
+          {Object.keys(shipStat).map((stat) => (
             <s.Container
               flex={1}
               ai={"center"}
@@ -120,14 +120,17 @@ export function ShipCreator(props) {
               pa={"1rem 0"}
             >
               <ShipStats
-                val={shipStats[stat].val}
-                label={shipStats[stat].label}
-                maxVal={shipStats[stat].maxVal}
+                val={shipStat[stat].val}
+                label={shipStat[stat].label}
+                maxVal={shipStat[stat].maxVal}
               />
             </s.Container>
           ))}
         </s.Container>
       </s.Container>
+      <s.Button onClick={() => props.onMint({ shipStat, shipParts })}>
+        Mint my ship
+      </s.Button>
     </s.Container>
   );
 }
