@@ -6,11 +6,19 @@ import * as s from "./Navbar.styles";
 const NavBar: React.FunctionComponent<INav> = (props) => {
   return (
     <s.Nav>
-      {props.routes.map((route) => (
-        <Link to={route.path} key={route.name}>
-          {route.name}
-        </Link>
-      ))}
+      <s.NavBlock flex={1}>
+        <img className="AppLogo" alt="app logo" />
+      </s.NavBlock>
+      <s.NavBlock flex={1} jc={"center"}>
+        {props.routes.map((route) => (
+          <Link to={route.path} key={route.name}>
+            {route.name}
+          </Link>
+        ))}
+      </s.NavBlock>
+      <s.NavBlock flex={1} jc={"end"}>
+        HERE GOES LOGIN AND LANG CHANGER
+      </s.NavBlock>
     </s.Nav>
   );
 };
