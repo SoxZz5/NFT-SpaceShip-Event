@@ -9,8 +9,9 @@ html,
   overflow: hidden;
 }
 
-.AppLogo {
-  height: 3.5rem;
-  width: 3.5rem;
-  background: white; // Remove after logo put
+header {
+  position: relative;
+  & > div {
+    position: relative;
+  }
 }

@@ -1,6 +1,6 @@
 // constants
 import Web3 from "web3";
-import SpaceShipEventContract from "../../contracts/SpaceShipEventContract.json";
+import SpaceShipEventContract from "../../../contracts/SpaceShipEventContract.json";
 // log
 import { fetchData } from "../data/dataActions";
 

@@ -7,6 +7,7 @@ const connectedRoutes: IRoute[] = [
     name: "Home",
     component: Main,
     exact: true,
+    guardByAuth: true,
   },
 ];
 
